@@ -16,7 +16,7 @@ class VehicleRegistry:
         self.add_vehicle_info("Tesla Model Y", True, 75000)
 
         with open("data_file.json", "r+") as read_write_file:
-            data = json.load(read_write_file)
+            self.data = json.load(read_write_file)
 
 
     def create_vehicle(self, brand):
@@ -24,7 +24,7 @@ class VehicleRegistry:
         license_plate = self.generate_vehicle_license(id)
         vehicle = Vehicle(id, license_plate, self.vehicle_info[brand])
 
-        data[id] = {license_plate, self.vehicle_info[brand]}
+        self.data[id] = {license_plate, self.vehicle_info[brand]}
 
         return Vehicle(id, license_plate, self.vehicle_info[brand])
 
