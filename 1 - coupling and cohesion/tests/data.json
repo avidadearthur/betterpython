@@ -1,10 +1,1 @@
-{
-   "GHMGHDMADSRN":{
-      "license_plate":"GH-36-BT",
-      "vehicle_info":{
-         "brand": "Volkswagen ID3",
-         "electric": true,
-         "catalogue_price": 700.0
-      }
-   }
-}
+{"TKQJAQJUIJZS": ["TK-89-VG", {"brand": "BMW 5", "electric": false, "price": 45000}], "COIZCWMCXYQR": ["CO-48-QO", {"brand": "Tesla Model 3", "electric": true, "price": 60000}]}

@@ -14,6 +14,9 @@ class VehicleInfo:
         if self.electric:
             tax_percentage = 0.02
         return tax_percentage * self.catalogue_price
+    
+    def to_string(self):
+        return {'brand':self.brand, 'electric':self.electric, 'price':self.catalogue_price}
 
     def print(self):
         print(f"Brand: {self.brand}")

@@ -6,9 +6,9 @@ class Vehicle:
     license_plate: str
     info: VehicleInfo
 
-    def __init__(self, info: VehicleInfo):
-        self.id = self.generate_vehicle_id(12)
-        self.license_plate = self.generate_vehicle_license(self.id)
+    def __init__(self, id: str, license_plate: str, info: VehicleInfo):
+        self.id = id
+        self.license_plate = license_plate
         self.info = info
 
 

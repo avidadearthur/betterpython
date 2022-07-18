@@ -1,8 +1,6 @@
 from Vehicle import Vehicle
 from VehicleInfo import VehicleInfo
-import random
-import string
-import json
+import random, string, json
 
 class VehicleRegistry:
     data: dict
@@ -15,16 +13,21 @@ class VehicleRegistry:
         self.add_vehicle_info("BMW 5", False, 45000)
         self.add_vehicle_info("Tesla Model Y", True, 75000)
 
-        with open("data_file.json", "r+") as read_write_file:
-            self.data = json.load(read_write_file)
-
 
     def create_vehicle(self, brand):
         id = self.generate_vehicle_id(12)
         license_plate = self.generate_vehicle_license(id)
-        vehicle = Vehicle(id, license_plate, self.vehicle_info[brand])
 
-        self.data[id] = {license_plate, self.vehicle_info[brand]}
+        with open("C:/Users/arthu/VSCodeProjects/betterpython/1 - coupling and cohesion/tests/data.json", "r+") as jsonFile:
+            self.data = json.load(jsonFile)
+
+            self.data[id] = [license_plate, self.vehicle_info[brand].to_string()]
+
+            jsonFile.seek(0)  # rewind
+            jsonFile.write(json.dumps(self.data))
+            jsonFile.truncate()
+        
+        jsonFile.close()
 
         return Vehicle(id, license_plate, self.vehicle_info[brand])
 

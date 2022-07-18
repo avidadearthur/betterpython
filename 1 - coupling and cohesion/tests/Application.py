@@ -1,5 +1,3 @@
-from Vehicle import Vehicle
-from VehicleInfo import VehicleInfo
 from VehicleRegistry import VehicleRegistry
 import string
 
@@ -13,4 +11,4 @@ class Application:
         vehicle.print()
 
 app = Application()
-app.register_vehicle("Volkswagen ID3")
+app.register_vehicle("Tesla Model 3")
