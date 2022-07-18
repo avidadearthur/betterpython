@@ -1,0 +1,10 @@
+{
+   "GHMGHDMADSRN":{
+      "license_plate":"GH-36-BT",
+      "vehicle_info":{
+         "brand": "Volkswagen ID3",
+         "electric": true,
+         "catalogue_price": 700.0
+      }
+   }
+}
