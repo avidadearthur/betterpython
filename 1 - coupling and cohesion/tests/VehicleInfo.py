@@ -1,4 +1,5 @@
 class VehicleInfo:
+    # TODO 3 - put vehicle info in JSON file
     brand: str
     electric: bool
     catalogue_price: int
