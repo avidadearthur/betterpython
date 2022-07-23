@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 from SwitchableInterface import Switchable
 
 
