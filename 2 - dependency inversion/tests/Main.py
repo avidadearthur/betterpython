@@ -13,6 +13,9 @@ class main:
         switch = ElectricPowerSwitch(f)
         switch.press()
         switch.press()
+        switch = ElectricPowerSwitch(l)
+        switch.press()
+        switch.press()
 
 
 if __name__ == "__main__":
