@@ -36,9 +36,9 @@ Now, if we create another implementation of the Switchable Interface such as the
 ## 3 - strategy pattern
 In computer programming, the strategy pattern is a behavioral software design pattern that enables selecting an algorithm at runtime. Instead of implementing a single algorithm directly, code receives run-time instructions as to which in a family of algorithms to use.[[1]](https://en.wikipedia.org/wiki/Strategy_pattern)
 ### Main problem with the code
-...
+The method that process tickets is very long and has weak cohesion. In the Strategy design pattern we'll solve this issue with an abstract base class that can be implemented in different ways depending on the chosen strategy.
 ### Switching to a strategy pattern
-...
+We start by creating a strategy Interface using the ABC (Abstract Base Class) module - see "2 - dependency inversion" for more details. This interface can have as many child classes as needed, each representing a different strategy.
 ### Creating concrete strategies
 ...
 ### Updating the process_tickets method
