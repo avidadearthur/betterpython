@@ -39,12 +39,24 @@ In computer programming, the strategy pattern is a behavioral software design pa
 The method that process tickets is very long and has weak cohesion. In the Strategy design pattern we'll solve this issue with an abstract base class that can be implemented in different ways depending on the chosen strategy.
 ### Switching to a strategy pattern
 We start by creating a strategy Interface using the ABC (Abstract Base Class) module - see "2 - dependency inversion" for more details. This interface can have as many child classes as needed, each representing a different strategy.
-### Creating concrete strategies
-...
-### Updating the process_tickets method
-...
-### Adding a new strategy
-...
+### Creating concrete strategies and Updating the process_tickets method
+The strategies come in the form of three class implementations: Fifo, Lifo and Random ordering of tickets.
+
+Then we updated the process_tickets method from the CostumerSupport class. Rather than 'processing_strategy' being a str that defines the path the program will take in an If-Else block, it becomes a TicketOrderingStrategy implementation. That way the ordering work is left for the iplementations and not for the Costumer Support class.
 ### A functional version of the strategy
-...
-### Adding a function type hint
+A simpler way to achieve the same improvement in cohesion does not involve abstract classes. In python you can symply use the functions and pass them as arguents.
+
+To be more clear Arjan imports the 'Callable' keyword and adds the type hint: <code>ordering: Callable[[List[SupportTicket]], List[SupportTicket]]<code>.
+
+## 3 - Strategy Pattern
+
+### Explaining the code example
+
+### Analysis
+
+### Creating a simple event handler
+
+### Moving to an event-based approach
+
+### The complete solution
+### The power of an event-based system
