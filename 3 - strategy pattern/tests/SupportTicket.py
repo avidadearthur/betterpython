@@ -1,7 +1,7 @@
 import string
 from typing import List
 from abc import ABC, abstractmethod
-from random import random, choices
+import random
 
 
 def generate_id(length=8):
