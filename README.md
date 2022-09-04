@@ -5,6 +5,7 @@ This repository contains the code examples used in my Write Better Python Code s
 https://www.youtube.com/playlist?list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71FG6N
 
 ## 1 - coupling and cohesion
+Coupling is the measure of the degree of interdependence between the modules. A good software will have low coupling. Cohesion is a measure of the degree to which the elements of the module are functionally related. It is the degree to which all elements directed towards performing a single task are contained in the component. Basically, cohesion is the internal glue that keeps the module together. A good software design will have high cohesion. [[0]](https://www.geeksforgeeks.org/software-engineering-coupling-and-cohesion/)
 ### Introduction
 ...
 ### What is cohesion?
@@ -46,7 +47,7 @@ Then we updated the process_tickets method from the CostumerSupport class. Rathe
 ### A functional version of the strategy
 A simpler way to achieve the same improvement in cohesion does not involve abstract classes. In python you can symply use the functions and pass them as arguents.
 
-To be more clear Arjan imports the 'Callable' keyword and adds the type hint: <code>ordering: Callable[[List[SupportTicket]], List[SupportTicket]]<code>.
+To be more clear Arjan imports the 'Callable' keyword and adds the type hint: <code>ordering: Callable[[List[SupportTicket]], List[SupportTicket]]</code>.
 
 ## 4 - Observer Pattern
 The observer pattern is a software design pattern in which an object, named the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
@@ -54,10 +55,22 @@ The observer pattern is a software design pattern in which an object, named the 
 It is mainly used for implementing distributed event handling systems, in "event driven" software. In those systems, the subject is usually named a "stream of events" or "stream source of events", while the observers are called "sinks of events". The stream nomenclature alludes to a physical setup where the observers are physically separated and have no control over the emitted events from the subject/stream-source. This pattern then perfectly suits any process where data arrives from some input that is not available to the CPU at startup, but instead arrives "at random" (HTTP requests, GPIO data, user input from keyboard/mouse/..., distributed databases and blockchains, ...).[[2]](https://en.wikipedia.org/wiki/Observer_pattern)
 
 ### Explaining the code example
+This example doesn't implement the Observer pattern in the traditional way: Subject notifying observers to react to a certain event. It illustrates a event management system.
+
+Suppose you write a back-end API and you develop a user registry function next to a operations database that sends a message to the sales team, sends a welcome email to the user and writes a log to the server somewhere.
+
+The observer.py file handles the registration of a new user using the API modules plan.py and user.py. These two scripts carry out their tasks by importing the modules from lib, which simulate some database, email, slack, etc... interaction.
 
 ### Analysis
+The problem with this code is that if, for instance, you look  at register_new_user from user.py you'll find a function with very weak cohesion: it interacts with the DB but also with the email, slack and log functioality. The same problem is found in <code>password_forgotten</code> and <code>upgrade_plan</code>. This is where an event 
 
 ### Creating a simple event handler
+The event system has a number of subscribers that subscribe for a different number of events and each item in the dictionary will be a list of subscribers that need to be notified every time that event occurs.
+
+The only thing we have to do when we subscribe to an event type is to check if there's already a list of that event type otherwiise we create it.
+
+We also need to be able to post an event and pass some data with it
+
 
 ### Moving to an event-based approach
 
