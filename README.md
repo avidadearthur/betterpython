@@ -47,36 +47,26 @@ To be more clear Arjan imports the 'Callable' keyword and adds the type hint: <c
 The observer pattern is a software design pattern in which an object, named the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
 
 It is mainly used for implementing distributed event handling systems, in "event driven" software. In those systems, the subject is usually named a "stream of events" or "stream source of events", while the observers are called "sinks of events". The stream nomenclature alludes to a physical setup where the observers are physically separated and have no control over the emitted events from the subject/stream-source. This pattern then perfectly suits any process where data arrives from some input that is not available to the CPU at startup, but instead arrives "at random" (HTTP requests, GPIO data, user input from keyboard/mouse/..., distributed databases and blockchains, ...).[[2]](https://en.wikipedia.org/wiki/Observer_pattern)
-
 ### Explaining the code example
 This example doesn't implement the Observer pattern in the traditional way: Subject notifying observers to react to a certain event. It illustrates a event management system.
-
 Suppose you write a back-end API and you develop a user registry function next to a operations database that sends a message to the sales team, sends a welcome email to the user and writes a log to the server somewhere.
-
 The observer.py file handles the registration of a new user using the API modules plan.py and user.py. These two scripts carry out their tasks by importing the modules from lib, which simulate some database, email, slack, etc... interaction.
 
 ### Analysis
 The problem with this code is that if, for instance, you look  at register_new_user from user.py you'll find a function with very weak cohesion: it interacts with the DB but also with the email, slack and log functioality. The same problem is found in <code>password_forgotten</code> and <code>upgrade_plan</code>. This is where an event 
-
 ### Creating a simple event handler
 The event system has a number of subscribers that subscribe for a different number of events and each item in the dictionary will be a list of subscribers that need to be notified every time that event occurs.
-
 The only thing we have to do when we subscribe to an event type is to check if there's already a list of that event type otherwiise we create it.
-
 We also need to be able to post an event and pass some data with it.     If the event doesn't exist, the function doesn't do anything. Otherwise the data will be transmitted for each subscriber function.
-
 ### Moving to an event-based approach
 Now what we can do is to go back to the user functions and replace the old code with post_event calls. This helps to group different event handlers in a way that makes sense instead of leaving up to the user.py functions to post the events.
-
 ### The power of an event-based system
 Therefore the only dependency is on the event_handler system. On top of what has been done, we could add log and email listeners. Since user.py simply posts an event, the code is also very flexible to API changes.
-
 ## 5 - Unit Testing
-
+Unit testing is a software development process in which the smallest testable parts of an application, called units, are individually and independently scrutinized for proper operation. This testing methodology is done during the development process by the software developers and sometimes QA staff.[[3]](https://www.techtarget.com/searchsoftwarequality/definition/unit-testing)
 ### Explaining the example
+Suppose we have a system that stores information about vehicles. The class vehicle has two methods: one for computing taxes and another that checks if you can lease a car instance.
 ### Setup unit testing
-### Add unit tests for compute_tax
-### Write unit tests for can_lease (TDD)
-### Write can_lease implementation
-### Solving the bug in compute_tax
-### Mistakes to avoid
+In the video example we used unittest as a test library and created a different file for the test methods.
+Note that all test methods must start with 'test'_ . Moreover you can obtain html reports from the test class.
+Refer to the [documentation](https://docs.python.org/3/library/unittest.html) for more details.
