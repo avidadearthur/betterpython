@@ -69,10 +69,12 @@ The event system has a number of subscribers that subscribe for a different numb
 
 The only thing we have to do when we subscribe to an event type is to check if there's already a list of that event type otherwiise we create it.
 
-We also need to be able to post an event and pass some data with it
-
+We also need to be able to post an event and pass some data with it.     If the event doesn't exist, the function doesn't do anything. Otherwise the data will be transmitted for each subscriber function.
 
 ### Moving to an event-based approach
+Now what we can do is to go back to the user functions and replace the old code with post_event calls. This helps to group different event handlers in a way that makes sense instead of leaving up to the user.py functions to post the events.
 
-### The complete solution
 ### The power of an event-based system
+Therefore the only dependency is on the event_handler system. On top of what has been done, we could add log and email listeners. Since user.py simply posts an event, the code is also very flexible to API changes.
+
+## 5 - Unit Testing
