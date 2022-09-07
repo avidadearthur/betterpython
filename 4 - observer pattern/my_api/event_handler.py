@@ -14,7 +14,7 @@ def subscribe(event_type: str, fn):
     event type is to check if there's already a list of that event type
     otherwiise we create it.
     '''
-    #
+
     if not event_type in subscribers:
         subscribers[event_type] = []
 

@@ -6,12 +6,6 @@ https://www.youtube.com/playlist?list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71FG6N
 
 ## 1 - coupling and cohesion
 Coupling is the measure of the degree of interdependence between the modules. A good software will have low coupling. Cohesion is a measure of the degree to which the elements of the module are functionally related. It is the degree to which all elements directed towards performing a single task are contained in the component. Basically, cohesion is the internal glue that keeps the module together. A good software design will have high cohesion. [[0]](https://www.geeksforgeeks.org/software-engineering-coupling-and-cohesion/)
-### Introduction
-...
-### What is cohesion?
-...
-### What is coupling?
-...
 ### Code example intro
 ...
 ### Analyzing the code
@@ -78,3 +72,11 @@ Now what we can do is to go back to the user functions and replace the old code 
 Therefore the only dependency is on the event_handler system. On top of what has been done, we could add log and email listeners. Since user.py simply posts an event, the code is also very flexible to API changes.
 
 ## 5 - Unit Testing
+
+### Explaining the example
+### Setup unit testing
+### Add unit tests for compute_tax
+### Write unit tests for can_lease (TDD)
+### Write can_lease implementation
+### Solving the bug in compute_tax
+### Mistakes to avoid
