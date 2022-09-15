@@ -6,16 +6,6 @@ https://www.youtube.com/playlist?list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71FG6N
 
 ## 1 - coupling and cohesion
 Coupling is the measure of the degree of interdependence between the modules. A good software will have low coupling. Cohesion is a measure of the degree to which the elements of the module are functionally related. It is the degree to which all elements directed towards performing a single task are contained in the component. Basically, cohesion is the internal glue that keeps the module together. A good software design will have high cohesion. [[0]](https://www.geeksforgeeks.org/software-engineering-coupling-and-cohesion/)
-### Code example intro
-...
-### Analyzing the code
-...
-### Information expert
-...
-### Reducing coupling
-...
-### Improving cohesion
-...
 
 ## 2 - dependency inversion
 Dependecy inversion helps you write code that can be more easily reusable. A key ingredient of dependecy inversion is abstraction:
