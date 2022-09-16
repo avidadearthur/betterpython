@@ -6,16 +6,6 @@ https://www.youtube.com/playlist?list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71FG6N
 
 ## 1 - coupling and cohesion
 Coupling is the measure of the degree of interdependence between the modules. A good software will have low coupling. Cohesion is a measure of the degree to which the elements of the module are functionally related. It is the degree to which all elements directed towards performing a single task are contained in the component. Basically, cohesion is the internal glue that keeps the module together. A good software design will have high cohesion. [[0]](https://www.geeksforgeeks.org/software-engineering-coupling-and-cohesion/)
-### Code example intro
-...
-### Analyzing the code
-...
-### Information expert
-...
-### Reducing coupling
-...
-### Improving cohesion
-...
 
 ## 2 - dependency inversion
 Dependecy inversion helps you write code that can be more easily reusable. A key ingredient of dependecy inversion is abstraction:
@@ -70,6 +60,7 @@ Suppose we have a system that stores information about vehicles. The class vehic
 In the video example we used unittest as a test library and created a different file for the test methods.
 Note that all test methods must start with 'test'_ . Moreover you can obtain html reports from the test class.
 Refer to the [documentation](https://docs.python.org/3/library/unittest.html) for more details.
+<<<<<<< HEAD
 
 ## 6 - Template & Bridge method
 This pattern has two main parts:
@@ -78,3 +69,5 @@ The "template method" is implemented as a method in a base class (usually an abs
 
 Subclasses of the base class "fill in" the empty or "variant" parts of the "template" with specific algorithms that vary from one subclass to another.[3] It is important that subclasses do not override the template method itself.
 [[4]](https://en.wikipedia.org/wiki/Template_method_pattern)
+=======
+>>>>>>> 8e92766482dd013b9be466b774750e77d7d32685
