@@ -60,14 +60,12 @@ Suppose we have a system that stores information about vehicles. The class vehic
 In the video example we used unittest as a test library and created a different file for the test methods.
 Note that all test methods must start with 'test'_ . Moreover you can obtain html reports from the test class.
 Refer to the [documentation](https://docs.python.org/3/library/unittest.html) for more details.
-<<<<<<< HEAD
 
 ## 6 - Template & Bridge method
 This pattern has two main parts:
 
-The "template method" is implemented as a method in a base class (usually an abstract class). This method contains code for the parts of the overall algorithm that are invariant. The template ensures that the overarching algorithm is always followed.[1] In the template method, portions of the algorithm that may vary are implemented by sending self messages that request the execution of additional helper methods. In the base class, these helper methods are given a default implementation, or none at all (that is, they may be abstract methods).
+The "template method" is implemented as a method in a base class (usually an abstract class). This method contains code for the parts of the overall algorithm that are invariant. The template ensures that the overarching algorithm is always followed. In the template method, portions of the algorithm that may vary are implemented by sending self messages that request the execution of additional helper methods. In the base class, these helper methods are given a default implementation, or none at all (that is, they may be abstract methods).
 
-Subclasses of the base class "fill in" the empty or "variant" parts of the "template" with specific algorithms that vary from one subclass to another.[3] It is important that subclasses do not override the template method itself.
+Subclasses of the base class "fill in" the empty or "variant" parts of the "template" with specific algorithms that vary from one subclass to another. It is important that subclasses do not override the template method itself.
 [[4]](https://en.wikipedia.org/wiki/Template_method_pattern)
-=======
->>>>>>> 8e92766482dd013b9be466b774750e77d7d32685
+
