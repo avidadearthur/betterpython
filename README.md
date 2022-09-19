@@ -75,6 +75,6 @@ For instance, we can create a AverageTrader class that uses the average of the p
 ### Implementing the bridge method
 TradingBot, however, still has a problem: it engages in activities that it shouldn't deal with - such as connecting to an exchange or getting market data from an exchange. To solve this we'll use the bridge design pattern: it will let us have an abstraction and its implementation defined and extended independently from each other. Put other way: the Trader can have different exchanges and different tradding strategies but the exchanges and the strategies are decoupled in different class hierachies.
 
-We start by creating an Exchange interface that will allow mutiple coin exchange implementations, Since we define the TradingBot class to receive a generic Exchange implementation, all exchanges added can be used by the different trading startegies
+We start by creating an Exchange interface that will allow mutiple coin exchange implementations. Since we define the TradingBot class to receive a generic Exchange implementation, all exchanges added can be used by the different trading startegies. Therefor we improve the degree of coupling of the code.
 
 ## 7 - Error Handling
