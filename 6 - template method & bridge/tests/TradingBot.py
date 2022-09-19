@@ -1,16 +1,12 @@
 from typing import List
 from abc import ABC, abstractclassmethod
+from Exchange import Exchange
 
 
 class TradingBot(ABC):
-    def connect(self):
-        print(f"Connecting to Crypto exchange...")
+    def __init__(self, exchange: Exchange):
+        self.exchange = exchange
 
-    def get_market_data(self, coin: str) -> List[float]:
-        return [10, 12, 18, 14]
-
-#    def list_average(self, l: List[float]) -> float:
-#        return sum(l) / len(l)
     @abstractclassmethod
     def should_buy(self, prices: List[float]) -> bool:
         pass
@@ -20,8 +16,10 @@ class TradingBot(ABC):
         pass
 
     def check_prices(self, coin: str):
-        self.connect()
-        prices = self.get_market_data(coin)
+
+        self.exchange.connect()
+        prices = self.exchange.get_market_data(coin)
+
         should_buy = self.should_buy(prices)
         should_sell = self.should_sell(prices)
         if should_buy:
