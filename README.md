@@ -61,11 +61,20 @@ In the video example we used unittest as a test library and created a different 
 Note that all test methods must start with 'test'_ . Moreover you can obtain html reports from the test class.
 Refer to the [documentation](https://docs.python.org/3/library/unittest.html) for more details.
 
-## 6 - Template & Bridge method
-This pattern has two main parts:
-
+## 6 - Template method
 The "template method" is implemented as a method in a base class (usually an abstract class). This method contains code for the parts of the overall algorithm that are invariant. The template ensures that the overarching algorithm is always followed. In the template method, portions of the algorithm that may vary are implemented by sending self messages that request the execution of additional helper methods. In the base class, these helper methods are given a default implementation, or none at all (that is, they may be abstract methods).
 
 Subclasses of the base class "fill in" the empty or "variant" parts of the "template" with specific algorithms that vary from one subclass to another. It is important that subclasses do not override the template method itself.
 [[4]](https://en.wikipedia.org/wiki/Template_method_pattern)
 
+### Implementing the template method
+As a first step we'll aggregate the functions that are allways called during the trading process. This entails creating a trading bot that contains the check prices method and then write abstract methods for the different parts of the check price algorithm.
+The class TradingBot is for the most part the same as the Application class. The main difference is at the level of the should_buy and should_sell methods - we'll turn these two functions into abstract method that we can implement diferently according to the trading stratgy you want to follow.
+
+For instance, we can create a AverageTrader class that uses the average of the prices to sell and buy stocks and we can also create a MinMaxTrader that uses the historical minimum and maximum to decide wether to buy or sell stocks.
+### Implementing the bridge method
+TradingBot, however, still has a problem: it engages in activities that it shouldn't deal with - such as connecting to an exchange or getting market data from an exchange. To solve this we'll use the bridge design pattern: it will let us have an abstraction and its implementation defined and extended independently from each other. Put other way: the Trader can have different exchanges and different tradding strategies but the exchanges and the strategies are decoupled in different class hierachies.
+
+We start by creating an Exchange interface that will allow mutiple coin exchange implementations, Since we define the TradingBot class to receive a generic Exchange implementation, all exchanges added can be used by the different trading startegies
+
+## 7 - Error Handling
