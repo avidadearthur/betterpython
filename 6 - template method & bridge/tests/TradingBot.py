@@ -11,10 +11,11 @@ class TradingBot(ABC):
 
 #    def list_average(self, l: List[float]) -> float:
 #        return sum(l) / len(l)
-
+    @abstractclassmethod
     def should_buy(self, prices: List[float]) -> bool:
         pass
 
+    @abstractclassmethod
     def should_sell(self, prices: List[float]) -> bool:
         pass
 
